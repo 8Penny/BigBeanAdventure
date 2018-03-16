@@ -110,6 +110,8 @@ SpriteAtlas:
   - {fileID: 21300104, guid: d2f69d302e3aca1448083b48f94754cf, type: 3}
   - {fileID: 21300102, guid: d2f69d302e3aca1448083b48f94754cf, type: 3}
   - {fileID: 21300100, guid: d2f69d302e3aca1448083b48f94754cf, type: 3}
+  - {fileID: 21300000, guid: bfb0b9a7c6ea570499e3c4e67eb2e18b, type: 3}
+  - {fileID: 21300000, guid: 015189029578c0d43af593c9908e420c, type: 3}
   m_PackedSpriteNamesToIndex:
   - grass_main_1
   - grass_main_2
@@ -187,5 +189,7 @@ SpriteAtlas:
   - grass_main_52
   - grass_main_51
   - grass_main_50
+  - ground
+  - ground_up
   m_Tag: AtlasFor
   m_IsVariant: 0

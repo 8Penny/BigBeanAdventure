@@ -8,8 +8,6 @@ public class PlayerMovement : MonoBehaviour {
     SpriteRenderer playerSP;
     Animator animator;
 
-    private bool isGrounded;
-
     private bool JumpRequest;
     
     public float horSpeed = 0.1f;
@@ -17,7 +15,9 @@ public class PlayerMovement : MonoBehaviour {
     public float verImp = 6f;
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
+    public LayerMask groundLayer;
     private bool attack;
+
 
     void Start()
     {
@@ -28,13 +28,16 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump") && isGrounded) // вкл прыжок
-            { JumpRequest = true; }
+        if (Input.GetButtonDown("Jump") && IsGrounded()) // вкл прыжок
+            { JumpRequest = true;  }
         if (Input.GetButtonDown("Fire1"))
             { attack = true; Fight(); }
     }
 
-    void FixedUpdate() {
+
+
+    void FixedUpdate()
+    {
         if (Input.GetButton("Horizontal") && Input.GetAxis("Horizontal") < 0 )
         { speedX = -horSpeed; playerSP.flipX = true; animator.SetBool("Move", true); } // задаём направление движения и
         else if (Input.GetButton("Horizontal") && Input.GetAxis("Horizontal") > 0 )
@@ -49,6 +52,7 @@ public class PlayerMovement : MonoBehaviour {
             animator.SetTrigger("Jump");
             JumpRequest = false;
         }
+
         if (player.velocity.y > 0 && !Input.GetButton("Jump")) // задаём силу прыжка от времени нажатия кнопки прыжка
         { player.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime; }
         else if (player.velocity.y < 0) {
@@ -60,23 +64,11 @@ public class PlayerMovement : MonoBehaviour {
         attack = false;
     }
 
-    void OnCollisionEnter2D(Collision2D col) // проверка прикосновения с землёй, и если земля, то сбрасываем анимцию прыжка
+    bool IsGrounded()// на земле?
     {
-        if (col.gameObject.tag == "Ground")
-        {
-            isGrounded = true; animator.ResetTrigger("Jump");
-        }
-
+        if (Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundLayer.value)) { return true; }
+        else { animator.ResetTrigger("Jump"); return false; }
     }
-
-    void OnCollisionExit2D(Collision2D colex) // проверка "покидания" земли
-    {
-        if (colex.gameObject.tag == "Ground" )
-        { isGrounded = false;  }
-
-    }
-
-
 
     void Fight()
     {

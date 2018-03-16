@@ -150,6 +150,15 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
+  - first: {x: -3, y: -7, z: 0}
+    second:
+      m_TileIndex: 68
+      m_TileSpriteIndex: 8
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
   - first: {x: -2, y: -7, z: 0}
     second:
       m_TileIndex: 59
@@ -999,8 +1008,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 1108d2839dfdada43b54b154fb8a5f6d, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: a69d8011d731ef04a9969fdd31ff599a, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 5f3a6b5f63a87874d9e1ad862b1d9ec0, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 63e26e98efbb15f49b7d638155fe9c30, type: 2}
   - m_RefCount: 1
@@ -1050,8 +1059,8 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: bfb0b9a7c6ea570499e3c4e67eb2e18b, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 015189029578c0d43af593c9908e420c, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 27846ec1dc81aae4bbf4e0b3c3948bdb, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300018, guid: d2f69d302e3aca1448083b48f94754cf, type: 3}
   - m_RefCount: 1
@@ -1205,7 +1214,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 21300168, guid: d2f69d302e3aca1448083b48f94754cf, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 80
+  - m_RefCount: 81
     m_Data:
       e00: 1
       e01: 0
@@ -1224,7 +1233,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 80
+  - m_RefCount: 81
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: 2.2e-44, g: 0, b: 0, a: NaN}
@@ -1389,7 +1398,7 @@ Tilemap:
   - serializedVersion: 1
     m_DirtyIndex: 0
   - serializedVersion: 1
-    m_DirtyIndex: 1
+    m_DirtyIndex: 0
   - serializedVersion: 1
     m_DirtyIndex: 0
   - serializedVersion: 1
