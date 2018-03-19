@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : Unit {
 
     Rigidbody2D player;
     SpriteRenderer playerSP;
     Animator animator;
 
     private bool JumpRequest;
-    
+
+    public int lives = 5;
     public float horSpeed = 0.1f;
     float speedX;
     public float verImp = 6f;
@@ -28,6 +30,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update()
     {
+
         if (Input.GetButtonDown("Jump") && IsGrounded()) // вкл прыжок
             { JumpRequest = true;  }
         if (Input.GetButtonDown("Fire1"))
@@ -69,11 +72,20 @@ public class PlayerMovement : MonoBehaviour {
         if (Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundLayer.value)) { return true; }
         else { animator.ResetTrigger("Jump"); return false; }
     }
-
+    public override void ReceiveDamage()
+    {
+        lives--;
+        Debug.Log("-1");
+        if (lives == 0) Die(); 
+        
+    }
     void Fight()
     {
         if (attack)
-        { animator.SetTrigger("Fight"); }
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + transform.up * 1.0F + transform.right * speedX * 1.0F, 0.5F);
+            if (colliders.All(x => x.tag == "Enemy")) Debug.Log("GROUND");
+            animator.SetTrigger("Fight"); }
 
     }
 }
