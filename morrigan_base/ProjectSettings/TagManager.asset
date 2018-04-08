@@ -9,6 +9,7 @@ TagManager:
   - Coin
   - Wall
   - Enemy
+  - HitZone
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - Player
   - Ground
-  - 
+  - Enemy
   - 
   - 
   - 

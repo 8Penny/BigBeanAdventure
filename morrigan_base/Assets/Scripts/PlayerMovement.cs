@@ -8,6 +8,8 @@ public class PlayerMovement : Unit {
     Rigidbody2D player;
     SpriteRenderer playerSP;
     Animator animator;
+    
+
 
     private bool JumpRequest;
 
@@ -17,8 +19,11 @@ public class PlayerMovement : Unit {
     public float verImp = 6f;
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
-    public LayerMask groundLayer;
-    private bool attack;
+    public LayerMask groundLayer = 9;
+
+    public bool attack;
+
+
 
 
     void Start()
@@ -26,6 +31,8 @@ public class PlayerMovement : Unit {
         player = GetComponent<Rigidbody2D>();
         playerSP = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        
+        
     }
 
     void Update()
@@ -33,8 +40,9 @@ public class PlayerMovement : Unit {
 
         if (Input.GetButtonDown("Jump") && IsGrounded()) // вкл прыжок
             { JumpRequest = true;  }
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !attack)
             { attack = true; Fight(); }
+
     }
 
 
@@ -42,24 +50,27 @@ public class PlayerMovement : Unit {
     void FixedUpdate()
     {
         if (Input.GetButton("Horizontal") && Input.GetAxis("Horizontal") < 0 )
-        { speedX = -horSpeed; playerSP.flipX = true; animator.SetBool("Move", true); } // задаём направление движения и
+        { speedX = -horSpeed; playerSP.flipX = true; animator.SetBool("Move", true);  } // задаём направление движения и
         else if (Input.GetButton("Horizontal") && Input.GetAxis("Horizontal") > 0 )
         { speedX = horSpeed; playerSP.flipX = false; animator.SetBool("Move", true); } // направление взгляда и вкл анимацию бега
         else { animator.SetBool("Move", false); }
         player.transform.Translate(speedX, 0, 0); // движение
+        
         speedX = 0; // обнуляем скорость движения, когда его не должно быть
 
         if (JumpRequest) // выполнение прыжка
         {
             player.AddForce(new Vector2(0, verImp), ForceMode2D.Impulse);
+            
             animator.SetTrigger("Jump");
             JumpRequest = false;
         }
 
         if (player.velocity.y > 0 && !Input.GetButton("Jump")) // задаём силу прыжка от времени нажатия кнопки прыжка
-        { player.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime; }
+        { player.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;  }
         else if (player.velocity.y < 0) {
             player.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            
             animator.SetBool("Fall", true); // при падении вкл анимацию падения
         }
         else if (player.velocity.y >= 0) { animator.SetBool("Fall", false); }
@@ -69,6 +80,7 @@ public class PlayerMovement : Unit {
 
     bool IsGrounded()// на земле?
     {
+        
         if (Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundLayer.value)) { return true; }
         else { animator.ResetTrigger("Jump"); return false; }
     }
@@ -81,11 +93,25 @@ public class PlayerMovement : Unit {
     }
     void Fight()
     {
-        if (attack)
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + transform.up * 0.5F + transform.right * speedX * 1.2F, 1.2F);
+        //Debug.Log(colliders.Any(x => x.GetComponent<Monster>()));
+        //foreach ( Collider2D col in colliders) { Debug.Log(col.GetComponent<Monster>()); }
+        
+        animator.SetTrigger("Fight");
+
+        if (colliders.Length > 0 && colliders.Any(x => x.GetComponent<Monster>())) { Debug.Log("Hello"); Monster monster; monster = colliders.Where(x => x.GetComponent<Monster>()).Select(x => x.GetComponent<Monster>()).ToList()[0]; monster.ReceiveDamage(); };
+        attack = false;
+        /*if (attack)
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + transform.up * 1.0F + transform.right * speedX * 1.0F, 0.5F);
-            if (colliders.All(x => x.tag == "Enemy")) Debug.Log("GROUND");
-            animator.SetTrigger("Fight"); }
+            Debug.Log("FIGHT");
+            hit = Physics2D.Raycast((Vector2)transform.position + Vector2.up * 0.5F, (Vector2)transform.position + Vector2.up * 0.5F + Vector2.right, 1.2f, enemyLayer.value);
+            Debug.DrawLine((Vector2)transform.position + Vector2.up * 0.5F, (Vector2)transform.position + Vector2.up * 0.5F + Vector2.right * 1.2f, Color.cyan);
+            if (hit.collider != null) { Debug.Log("HELLO"); Monster monster; monster = hit.collider.GetComponent<Monster>(); Debug.Log(monster); monster.ReceiveDamage(); }
+            /*Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + transform.up * 1.0F + transform.right * speedX * 1.0F, 0.5F);
+            if (colliders.All(x => x.tag == "Enemy"))
+            {colliders.f
+                var reponse = colliders.Equals(r => r.tag == "Enemy"); }
+            animator.SetTrigger("Fight"); }*/
 
     }
 }

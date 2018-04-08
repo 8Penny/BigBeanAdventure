@@ -33,7 +33,7 @@ public class MovebleMonster : Monster {
             //unit.ReceiveDamage();
             Debug.Log(Mathf.Abs(unit.transform.position.x - transform.position.x));
             Debug.Log(Mathf.Abs(unit.transform.position.y - transform.position.y));
-            if (Mathf.Abs(unit.transform.position.x - transform.position.x) < 0.5F && unit.transform.position.y-transform.position.y>0.2f) ReceiveDamage();
+            if (Mathf.Abs(unit.transform.position.x - transform.position.x) < 0.5F && unit.transform.position.y-transform.position.y>0.2f) unit.ReceiveDamage();
             else unit.ReceiveDamage();
         }
     }
@@ -43,7 +43,7 @@ public class MovebleMonster : Monster {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + transform.up * 0.5F + transform.right * direction.x * 0.7F, 0.2F);
         Collider2D[] collidersCheckGround = Physics2D.OverlapCircleAll(transform.position + transform.up * -0.5F + transform.right * direction.x * 1.0F, 0.1F);
 
-        if (collidersCheckGround.All(x => x.tag != "Ground")) Debug.Log("GROUND");
+
         if (colliders.Length > 0 && colliders.All(x => !x.GetComponent<PlayerMovement>()) || collidersCheckGround.Length == 0 || collidersCheckGround.All(x => x.tag != "Ground"))  direction *= -1.0F; 
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
     }
