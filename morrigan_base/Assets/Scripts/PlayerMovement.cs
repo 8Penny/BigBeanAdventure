@@ -8,6 +8,7 @@ public class PlayerMovement : Unit {
     Rigidbody2D player;
     SpriteRenderer playerSP;
     Animator animator;
+    BoxCollider2D playerBC;
     
 
 
@@ -29,6 +30,7 @@ public class PlayerMovement : Unit {
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
+        playerBC = GetComponent<BoxCollider2D>();
         playerSP = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         
@@ -81,7 +83,8 @@ public class PlayerMovement : Unit {
     bool IsGrounded()// на земле?
     {
         
-        if (Physics2D.Raycast(transform.position, Vector2.down, 0.1f, groundLayer.value)) { return true; }
+        if ((Physics2D.Raycast(new Vector2(transform.position.x - playerBC.size.x / 2, transform.position.y), Vector2.down, 0.1f, groundLayer.value)) ||
+            (Physics2D.Raycast(new Vector2(transform.position.x + playerBC.size.x / 2, transform.position.y), Vector2.down, 0.1f, groundLayer.value))) { return true; }
         else { animator.ResetTrigger("Jump"); return false; }
     }
     public override void ReceiveDamage()

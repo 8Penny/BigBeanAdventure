@@ -1,17 +1,20 @@
 fileFormatVersion: 2
-guid: ed76bb92fac29ff499ae2c23c6bb1226
-timeCreated: 1520775669
+guid: 6adf0001a07841543b14dfc1b4787bea
+timeCreated: 1530553027
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: fight_0
-    21300002: fight_1
-    21300004: fight_2
-    21300006: fight_3
-    21300008: fight_4
-    21300010: fight_5
-    21300012: fight_6
-    21300014: fight_7
+    21300000: coin_0
+    21300002: coin_1
+    21300004: coin_2
+    21300006: coin_3
+    21300008: coin_4
+    21300010: coin_5
+    21300012: coin_6
+    21300014: coin_7
+    21300016: coin_8
+    21300018: coin_9
+    21300020: coin_10
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -54,7 +57,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 42
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -68,7 +71,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -78,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -88,7 +91,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,7 +101,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,113 +111,155 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fight_0
+      name: coin_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 916
-        width: 414
-        height: 458
-      alignment: 9
-      pivot: {x: 0.5619339, y: 0}
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: fight_1
+      name: coin_1
       rect:
         serializedVersion: 2
-        x: 414
-        y: 916
-        width: 414
-        height: 458
-      alignment: 9
-      pivot: {x: 0.5619339, y: 0}
+        x: 42
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: fight_2
+      name: coin_2
       rect:
         serializedVersion: 2
-        x: 828
-        y: 916
-        width: 414
-        height: 458
-      alignment: 9
-      pivot: {x: 0.5619339, y: 0}
+        x: 84
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: fight_3
+      name: coin_3
       rect:
         serializedVersion: 2
-        x: 1242
-        y: 916
-        width: 414
-        height: 458
-      alignment: 9
-      pivot: {x: 0.5619339, y: 0}
+        x: 126
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: fight_4
+      name: coin_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 458
-        width: 414
-        height: 458
-      alignment: 9
-      pivot: {x: 0.5619339, y: 0}
+        x: 168
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: fight_5
+      name: coin_5
       rect:
         serializedVersion: 2
-        x: 414
-        y: 458
-        width: 414
-        height: 458
-      alignment: 9
-      pivot: {x: 0.5619339, y: 0}
+        x: 210
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: fight_6
+      name: coin_6
       rect:
         serializedVersion: 2
-        x: 828
-        y: 458
-        width: 414
-        height: 458
-      alignment: 9
-      pivot: {x: 0.5619339, y: 0}
+        x: 252
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: fight_7
+      name: coin_7
       rect:
         serializedVersion: 2
-        x: 1242
-        y: 458
-        width: 414
-        height: 458
-      alignment: 9
-      pivot: {x: 0.5619339, y: 0}
+        x: 294
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: coin_8
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: coin_9
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: coin_10
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
