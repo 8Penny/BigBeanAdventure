@@ -10,6 +10,8 @@ TagManager:
   - Wall
   - Enemy
   - HitZone
+  - Bean
+  - Plant
   layers:
   - Default
   - TransparentFX
@@ -52,6 +54,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 3695692671
+    locked: 0
+  - name: Staff
+    uniqueID: 3938091927
     locked: 0
   - name: Plant
     uniqueID: 2067662017
