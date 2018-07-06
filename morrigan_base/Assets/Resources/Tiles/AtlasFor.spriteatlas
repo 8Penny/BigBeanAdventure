@@ -51,11 +51,11 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 0cf07f45f1c1ba4498adeb0d10bc9b71, type: 3}
   - {fileID: 21300010, guid: 0cf07f45f1c1ba4498adeb0d10bc9b71, type: 3}
   - {fileID: 21300008, guid: 0cf07f45f1c1ba4498adeb0d10bc9b71, type: 3}
-  - {fileID: 21300000, guid: 8c61da317706cbf429ac86113d1800e1, type: 3}
+  - {fileID: 21300006, guid: 8c61da317706cbf429ac86113d1800e1, type: 3}
+  - {fileID: 21300004, guid: 8c61da317706cbf429ac86113d1800e1, type: 3}
   - {fileID: 21300000, guid: 27846ec1dc81aae4bbf4e0b3c3948bdb, type: 3}
   - {fileID: 21300000, guid: bfb0b9a7c6ea570499e3c4e67eb2e18b, type: 3}
   - {fileID: 21300000, guid: 015189029578c0d43af593c9908e420c, type: 3}
-  - {fileID: 21300002, guid: 8c61da317706cbf429ac86113d1800e1, type: 3}
   m_PackedSpriteNamesToIndex:
   - fight_2
   - fight_3
@@ -71,10 +71,10 @@ SpriteAtlas:
   - idle1_0
   - idle1_5
   - idle1_4
-  - dirt_1
+  - Dirt_1
+  - Dirt_0
   - cave_stone
   - ground
   - ground_up
-  - dirt_0
   m_Tag: AtlasFor
   m_IsVariant: 0
