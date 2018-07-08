@@ -1,15 +1,14 @@
 fileFormatVersion: 2
-guid: 0cf07f45f1c1ba4498adeb0d10bc9b71
-timeCreated: 1520369686
+guid: 4523bd4a30c860448af55b2346298bb3
+timeCreated: 1531031689
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: idle1_0
-    21300002: idle1_1
-    21300004: idle1_2
-    21300006: idle1_3
-    21300008: idle1_4
-    21300010: idle1_5
+    21300000: ui_heart
+    21300002: ui_coin
+    21300004: ui_bean
+    21300006: ui_sword
+    21300008: ui_cog
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -52,7 +51,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 42
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -67,7 +66,7 @@ TextureImporter:
     resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 2
-    compressionQuality: 100
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -77,7 +76,7 @@ TextureImporter:
     resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 2
-    compressionQuality: 100
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -87,7 +86,7 @@ TextureImporter:
     resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 2
-    compressionQuality: 100
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -97,7 +96,7 @@ TextureImporter:
     resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 2
-    compressionQuality: 100
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -106,85 +105,71 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idle1_0
+      name: ui_heart
       rect:
         serializedVersion: 2
         x: 0
-        y: 872
-        width: 414
-        height: 406
-      alignment: 9
-      pivot: {x: 0.5619339, y: 0}
+        y: 0
+        width: 42
+        height: 42
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: idle1_1
+      name: ui_coin
       rect:
         serializedVersion: 2
-        x: 414
-        y: 872
-        width: 414
-        height: 406
-      alignment: 9
-      pivot: {x: 0.5619339, y: 0}
+        x: 42
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: idle1_2
+      name: ui_bean
       rect:
         serializedVersion: 2
-        x: 828
-        y: 869
-        width: 414
-        height: 406
-      alignment: 9
-      pivot: {x: 0.5619339, y: 0}
+        x: 84
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: idle1_3
+      name: ui_sword
       rect:
         serializedVersion: 2
-        x: 1242
-        y: 869
-        width: 414
-        height: 406
-      alignment: 9
-      pivot: {x: 0.5619339, y: 0}
+        x: 126
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: idle1_4
+      name: ui_cog
       rect:
         serializedVersion: 2
-        x: 1
-        y: 443
-        width: 414
-        height: 406
-      alignment: 9
-      pivot: {x: 0.5619339, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: idle1_5
-      rect:
-        serializedVersion: 2
-        x: 414
-        y: 443
-        width: 414
-        height: 406
-      alignment: 9
-      pivot: {x: 0.5619339, y: 0}
+        x: 168
+        y: 0
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
