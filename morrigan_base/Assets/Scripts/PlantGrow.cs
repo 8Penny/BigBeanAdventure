@@ -10,18 +10,20 @@ public class PlantGrow : MonoBehaviour
     public bool isPlayer = false;
     public Collider2D player;
     public Collider2D plant;
+    public Inventory inv;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         plant = GetComponent<Collider2D>();
         player = GameObject.FindWithTag("Player").GetComponent<Collider2D>();
+        inv = GameObject.FindWithTag("Player").GetComponent<Inventory>();
     }
 
     void Update()
     {
         CheckPlayer();
-        if (!isPlantGrown && isPlayer && Input.GetKeyDown(KeyCode.E)) { animator.SetBool("plant", true); isPlantGrown = true; print("You've got GOLD!"); }
+        if (!isPlantGrown && isPlayer && inv.beans>0 && Input.GetKeyDown(KeyCode.E)) { animator.SetBool("plant", true); isPlantGrown = true; print("You've grown a plant!"); inv.beans -= 1; }
     }
 
     void CheckPlayer()
