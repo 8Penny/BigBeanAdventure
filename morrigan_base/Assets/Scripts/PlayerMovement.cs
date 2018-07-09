@@ -9,6 +9,7 @@ public class PlayerMovement : Unit {
     SpriteRenderer playerSP;
     Animator animator;
     BoxCollider2D playerBC;
+    CapsuleCollider2D playerCC;
     
 
 
@@ -21,7 +22,7 @@ public class PlayerMovement : Unit {
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
     public LayerMask groundLayer = 9;
-
+    public bool right_direction = true;
     public bool attack;
 
 
@@ -33,6 +34,7 @@ public class PlayerMovement : Unit {
         playerBC = GetComponent<BoxCollider2D>();
         playerSP = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        playerCC = GetComponent<CapsuleCollider2D>();
         
         
     }
@@ -52,9 +54,9 @@ public class PlayerMovement : Unit {
     void FixedUpdate()
     {
         if (Input.GetButton("Horizontal") && Input.GetAxis("Horizontal") < 0 )
-        { speedX = -horSpeed; playerSP.flipX = true; animator.SetBool("Move", true);  } // задаём направление движения и
+        { speedX = -horSpeed; if (right_direction) { transform.localScale = Vector3.Scale(transform.localScale, new Vector3(-1f, 1, 1)); right_direction = false; } animator.SetBool("Move", true);  } // задаём направление движения и
         else if (Input.GetButton("Horizontal") && Input.GetAxis("Horizontal") > 0 )
-        { speedX = horSpeed; playerSP.flipX = false; animator.SetBool("Move", true); } // направление взгляда и вкл анимацию бега
+        { speedX = horSpeed; if (!right_direction) { transform.localScale = Vector3.Scale(transform.localScale, new Vector3(-1f, 1, 1)); right_direction = true; } animator.SetBool("Move", true); } // направление взгляда и вкл анимацию бега
         else { animator.SetBool("Move", false); }
         player.transform.Translate(speedX, 0, 0); // движение
         
