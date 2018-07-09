@@ -98,14 +98,25 @@ public class PlayerMovement : Unit {
     }
     void Fight()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + transform.up * 0.5F + transform.right * speedX * 1.2F, 1.2F);
+        //Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + transform.up * 0.5F + transform.right * speedX * 1.2F, 1.2F);
+        ContactFilter2D contactFilter = new ContactFilter2D();
+
+        contactFilter.SetLayerMask(LayerMask.GetMask("Enemy"));
+        int numColliders = 10;
+        Collider2D[] colliders = new Collider2D[numColliders];
+        int colliders_c = playerCC.OverlapCollider(contactFilter, colliders);
         //Debug.Log(colliders.Any(x => x.GetComponent<Monster>()));
         //foreach ( Collider2D col in colliders) { Debug.Log(col.GetComponent<Monster>()); }
+        //foreach (Collider2D col in colliders) { Debug.Log(col.tag);}
         
         animator.SetTrigger("Fight");
 
-        if (colliders.Length > 0 && colliders.Any(x => x.GetComponent<Monster>())) { Debug.Log("Hello"); Monster monster; monster = colliders.Where(x => x.GetComponent<Monster>()).Select(x => x.GetComponent<Monster>()).ToList()[0]; monster.ReceiveDamage(); };
+        if (colliders.Any(x => x.GetComponent<Monster>())) { Debug.Log("Hello"); Monster monster; monster = colliders[0].GetComponent<Monster>(); /* monster = colliders.Select(x => x.GetComponent<Monster>()).ToList()[0]; Debug.Log(monster);*/ monster.ReceiveDamage(); };
         attack = false;
+
+        /*
+        if (colliders.Length > 0 && colliders.Any(x => x.GetComponent<Monster>())) { Debug.Log("Hello"); Monster monster; monster = colliders.Where(x => x.GetComponent<Monster>()).Select(x => x.GetComponent<Monster>()).ToList()[0]; Debug.Log(monster); monster.ReceiveDamage(); };
+        attack = false;*/
         /*if (attack)
         {
             Debug.Log("FIGHT");
