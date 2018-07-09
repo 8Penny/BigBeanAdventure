@@ -22,10 +22,9 @@ public class Bean : MonoBehaviour
     void Update()
     {
         CheckPlayer();
-        if (isPlayer) { Destroy(BeanObj); print("You've got 1 Bean!"); inv.beans++; }
+        if (isPlayer) { Destroy(BeanObj); inv.beans++; }
     }
 
     void CheckPlayer()
     { isPlayer = Physics2D.IsTouching(bean, player); }
-
 }

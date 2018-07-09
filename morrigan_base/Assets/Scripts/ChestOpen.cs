@@ -23,5 +23,4 @@ public class ChestOpen : MonoBehaviour {
 
     void CheckPlayer()
     { isPlayer = Physics2D.IsTouching(chest, player); }
-
 }

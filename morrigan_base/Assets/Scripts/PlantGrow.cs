@@ -23,10 +23,9 @@ public class PlantGrow : MonoBehaviour
     void Update()
     {
         CheckPlayer();
-        if (!isPlantGrown && isPlayer && inv.beans>0 && Input.GetKeyDown(KeyCode.E)) { animator.SetBool("plant", true); isPlantGrown = true; print("You've grown a plant!"); inv.beans -= 1; }
+        if (!isPlantGrown && isPlayer && inv.beans>0 && Input.GetKeyDown(KeyCode.E)) { animator.SetBool("plant", true); isPlantGrown = true; inv.beans -= 1; }
     }
 
     void CheckPlayer()
     { isPlayer = Physics2D.IsTouching(plant, player); }
-
 }
