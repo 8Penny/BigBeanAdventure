@@ -21,7 +21,7 @@ public class Coin : MonoBehaviour {
     void Update()
     {
         CheckPlayer();
-        if (isPlayer) { Destroy(CoinObj); print("You've got 1 Coin!"); inv.coins++; }
+        if (isPlayer) { Destroy(CoinObj); inv.coins++; }
     }
 
     void CheckPlayer()
