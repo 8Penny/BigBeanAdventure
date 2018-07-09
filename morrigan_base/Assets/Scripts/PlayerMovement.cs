@@ -25,6 +25,8 @@ public class PlayerMovement : Unit {
     public bool right_direction = true;
     public bool attack;
 
+    public bool timerOn = false;
+    public float timeLeft = 0;
 
 
 
@@ -46,6 +48,7 @@ public class PlayerMovement : Unit {
             { JumpRequest = true;  }
         if (Input.GetButtonDown("Fire1") && !attack)
             { attack = true; Fight(); }
+        if (timerOn) { Fight(); }
 
     }
 
@@ -108,10 +111,12 @@ public class PlayerMovement : Unit {
         //Debug.Log(colliders.Any(x => x.GetComponent<Monster>()));
         //foreach ( Collider2D col in colliders) { Debug.Log(col.GetComponent<Monster>()); }
         //foreach (Collider2D col in colliders) { Debug.Log(col.tag);}
+        timeLeft -= Time.deltaTime;
         
-        animator.SetTrigger("Fight");
+        if (!timerOn) { timerOn = true;  timeLeft = .3f; animator.SetTrigger("Fight"); }
+        if (timerOn && timeLeft<=0) { timerOn = false; Debug.Log("!!!"); }
 
-        if (colliders.Any(x => x.GetComponent<Monster>())) { Debug.Log("Hello"); Monster monster; monster = colliders[0].GetComponent<Monster>(); /* monster = colliders.Select(x => x.GetComponent<Monster>()).ToList()[0]; Debug.Log(monster);*/ monster.ReceiveDamage(); };
+        if (colliders[0] != null) { if (colliders.Any(x => x.GetComponent<Monster>())) { Debug.Log("Hello"); Monster monster; monster = colliders[0].GetComponent<Monster>(); /* monster = colliders.Select(x => x.GetComponent<Monster>()).ToList()[0]; Debug.Log(monster);*/ monster.ReceiveDamage(); } }
         attack = false;
 
         /*

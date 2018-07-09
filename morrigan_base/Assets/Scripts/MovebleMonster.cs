@@ -33,8 +33,8 @@ public class MovebleMonster : Monster {
             //unit.ReceiveDamage();
             Debug.Log(Mathf.Abs(unit.transform.position.x - transform.position.x));
             Debug.Log(Mathf.Abs(unit.transform.position.y - transform.position.y));
-            if (Mathf.Abs(unit.transform.position.x - transform.position.x) < 0.5F && unit.transform.position.y-transform.position.y>0.2f) unit.ReceiveDamage();
-            else unit.ReceiveDamage();
+            if (Mathf.Abs(unit.transform.position.x - transform.position.x) < 1.5F ) unit.ReceiveDamage();
+            //else unit.ReceiveDamage();
         }
     }
     private void Move()
