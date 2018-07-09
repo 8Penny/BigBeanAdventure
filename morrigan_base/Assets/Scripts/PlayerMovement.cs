@@ -14,7 +14,7 @@ public class PlayerMovement : Unit {
 
     private bool JumpRequest;
 
-    public int lives = 5;
+    public int lives = 3;
     public float horSpeed = 0.1f;
     float speedX;
     public float verImp = 6f;
