@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Linq;
 
 public class MovebleMonster : Monster {
@@ -30,12 +28,13 @@ public class MovebleMonster : Monster {
     protected override void OnTriggerEnter2D(Collider2D collider)
     {
         Unit unit = collider.GetComponent<Unit>();
-        if (unit && unit.tag == "Player")
+        if (unit && unit.tag == "Player" )
         {
+            Debug.Log(collider.GetType());
             //unit.ReceiveDamage();
             Debug.Log(Mathf.Abs(unit.transform.position.x - transform.position.x));
             Debug.Log(Mathf.Abs(unit.transform.position.y - transform.position.y));
-            if (Mathf.Abs(unit.transform.position.x - transform.position.x) < 1.5F ) unit.ReceiveDamage();
+            if (Mathf.Abs(unit.transform.position.x - transform.position.x) < 1.6F ) unit.ReceiveDamage();
             //else unit.ReceiveDamage();
         }
     }

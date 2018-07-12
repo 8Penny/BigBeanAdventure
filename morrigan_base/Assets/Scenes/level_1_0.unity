@@ -265,11 +265,12 @@ GameObject:
   - component: {fileID: 29991502}
   - component: {fileID: 29991501}
   - component: {fileID: 29991499}
-  - component: {fileID: 29991498}
   - component: {fileID: 29991500}
+  - component: {fileID: 29991504}
+  - component: {fileID: 29991498}
   - component: {fileID: 29991497}
   - component: {fileID: 29991503}
-  - component: {fileID: 29991504}
+  - component: {fileID: 29991505}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -297,9 +298,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
-  attack: 0
-  timerOn: 0
-  timeLeft: 0
 --- !u!50 &29991498
 Rigidbody2D:
   serializedVersion: 4
@@ -447,6 +445,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0.73, y: 2.06}
   m_Size: {x: 1.79, y: 3.35}
   m_Direction: 0
+--- !u!114 &29991505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 29991496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8e4cf902a442b4f9d2c100bef73eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCC: {fileID: 0}
+  animator: {fileID: 0}
+  attack: 0
+  timerOn: 0
+  timeLeft: 0
 --- !u!1 &52843488
 GameObject:
   m_ObjectHideFlags: 0
