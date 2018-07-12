@@ -12,7 +12,6 @@ public class Hearts : MonoBehaviour {
         rect = GetComponent<RectTransform>();
     }
 	
-
 	void Update () {
         if (mov.lives == 3) rect.sizeDelta = new Vector2(300f, 90f);
         else if (mov.lives == 2) rect.sizeDelta = new Vector2(200f, 90f);

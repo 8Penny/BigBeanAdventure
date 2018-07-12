@@ -15,8 +15,7 @@ public class BeanCount : MonoBehaviour
         inv = GameObject.FindWithTag("Player").GetComponent<Inventory>();
         text = GetComponent<Text>();
     }
-
-
+    
     void Update()
     {
         text.text = Convert.ToString(inv.beans);

@@ -26,5 +26,4 @@ public class Coin : MonoBehaviour {
 
     void CheckPlayer()
     { isPlayer = Physics2D.IsTouching(coin, player); }
-
 }

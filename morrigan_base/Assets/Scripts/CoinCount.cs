@@ -12,8 +12,7 @@ public class CoinCount : MonoBehaviour {
     void Start () {
         inv = GameObject.FindWithTag("Player").GetComponent<Inventory>();
         text = GetComponent<Text>();
-    }
-	
+    }	
 
 	void Update () {
         text.text = Convert.ToString(inv.coins);

@@ -12,6 +12,8 @@ TagManager:
   - HitZone
   - Bean
   - Plant
+  - CoinPlant
+  - Potion
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - Ground
   - Enemy
   - Plant
-  - 
+  - Staff
   - 
   - 
   - 
@@ -55,11 +57,11 @@ TagManager:
   - name: Ground
     uniqueID: 3695692671
     locked: 0
-  - name: Staff
-    uniqueID: 3938091927
-    locked: 0
   - name: Plant
     uniqueID: 2067662017
+    locked: 0
+  - name: Staff
+    uniqueID: 3938091927
     locked: 0
   - name: Player
     uniqueID: 1018884263

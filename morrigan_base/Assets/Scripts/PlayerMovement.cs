@@ -6,60 +6,51 @@ using System.Linq;
 public class PlayerMovement : Unit {
 
     Rigidbody2D player;
-    SpriteRenderer playerSP;
-    Animator animator;
     BoxCollider2D playerBC;
     CapsuleCollider2D playerCC;
-    
-
-
-    private bool JumpRequest;
+    Animator animator;
 
     public int lives = 3;
+
     public float horSpeed = 0.1f;
     float speedX;
+    public bool right_direction = true;
+
+    private bool JumpRequest;
     public float verImp = 6f;
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
+
     public LayerMask groundLayer = 9;
-    public bool right_direction = true;
+
     public bool attack;
 
     public bool timerOn = false;
     public float timeLeft = 0;
-
-
-
+    
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
         playerBC = GetComponent<BoxCollider2D>();
-        playerSP = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
         playerCC = GetComponent<CapsuleCollider2D>();
-        
-        
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-
         if (Input.GetButtonDown("Jump") && IsGrounded()) // вкл прыжок
             { JumpRequest = true;  }
         if (Input.GetButtonDown("Fire1") && !attack)
             { attack = true; Fight(); }
         if (timerOn) { Fight(); }
-
     }
-
-
-
+    
     void FixedUpdate()
     {
         if (Input.GetButton("Horizontal") && Input.GetAxis("Horizontal") < 0 )
-        { speedX = -horSpeed; if (right_direction) { transform.localScale = Vector3.Scale(transform.localScale, new Vector3(-1f, 1, 1)); right_direction = false; } animator.SetBool("Move", true);  } // задаём направление движения и
+        { speedX = -horSpeed; if (right_direction) { transform.localScale = Vector3.Scale(transform.localScale, new Vector3(-1f, 1, 1)); right_direction = false; } animator.SetBool("Move", true);  }
         else if (Input.GetButton("Horizontal") && Input.GetAxis("Horizontal") > 0 )
-        { speedX = horSpeed; if (!right_direction) { transform.localScale = Vector3.Scale(transform.localScale, new Vector3(-1f, 1, 1)); right_direction = true; } animator.SetBool("Move", true); } // направление взгляда и вкл анимацию бега
+        { speedX = horSpeed; if (!right_direction) { transform.localScale = Vector3.Scale(transform.localScale, new Vector3(-1f, 1, 1)); right_direction = true; } animator.SetBool("Move", true); }
         else { animator.SetBool("Move", false); }
         player.transform.Translate(speedX, 0, 0); // движение
         
@@ -68,7 +59,6 @@ public class PlayerMovement : Unit {
         if (JumpRequest) // выполнение прыжка
         {
             player.AddForce(new Vector2(0, verImp), ForceMode2D.Impulse);
-            
             animator.SetTrigger("Jump");
             JumpRequest = false;
         }
@@ -77,7 +67,6 @@ public class PlayerMovement : Unit {
         { player.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;  }
         else if (player.velocity.y < 0) {
             player.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-            
             animator.SetBool("Fall", true); // при падении вкл анимацию падения
         }
         else if (player.velocity.y >= 0) { animator.SetBool("Fall", false); }
@@ -86,37 +75,37 @@ public class PlayerMovement : Unit {
     }
 
     bool IsGrounded()// на земле?
-    {
-        
+    {        
         if ((Physics2D.Raycast(new Vector2(transform.position.x - playerBC.size.x / 2, transform.position.y), Vector2.down, 0.1f, groundLayer.value)) ||
             (Physics2D.Raycast(new Vector2(transform.position.x + playerBC.size.x / 2, transform.position.y), Vector2.down, 0.1f, groundLayer.value))) { return true; }
         else { animator.ResetTrigger("Jump"); return false; }
     }
+
     public override void ReceiveDamage()
     {
         lives--;
-        Debug.Log("-1");
-        if (lives == 0) Die(); 
-        
+        //Debug.Log("-1");
+        if (lives == 0) Die();         
     }
+
     void Fight()
     {
         //Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + transform.up * 0.5F + transform.right * speedX * 1.2F, 1.2F);
         ContactFilter2D contactFilter = new ContactFilter2D();
-
         contactFilter.SetLayerMask(LayerMask.GetMask("Enemy"));
+
         int numColliders = 10;
         Collider2D[] colliders = new Collider2D[numColliders];
-        int colliders_c = playerCC.OverlapCollider(contactFilter, colliders);
+        playerCC.OverlapCollider(contactFilter, colliders);
         //Debug.Log(colliders.Any(x => x.GetComponent<Monster>()));
         //foreach ( Collider2D col in colliders) { Debug.Log(col.GetComponent<Monster>()); }
         //foreach (Collider2D col in colliders) { Debug.Log(col.tag);}
+
         timeLeft -= Time.deltaTime;
-        
         if (!timerOn) { timerOn = true;  timeLeft = .3f; animator.SetTrigger("Fight"); }
         if (timerOn && timeLeft<=0) { timerOn = false; Debug.Log("!!!"); }
 
-        if (colliders[0] != null) { if (colliders.Any(x => x.GetComponent<Monster>())) { Debug.Log("Hello"); Monster monster; monster = colliders[0].GetComponent<Monster>(); /* monster = colliders.Select(x => x.GetComponent<Monster>()).ToList()[0]; Debug.Log(monster);*/ monster.ReceiveDamage(); } }
+        if (colliders[0] != null) { if (colliders.Any(x => x.GetComponent<Monster>())) { /*Debug.Log("Hello");*/ Monster monster; monster = colliders[0].GetComponent<Monster>(); /* monster = colliders.Select(x => x.GetComponent<Monster>()).ToList()[0]; Debug.Log(monster);*/ monster.ReceiveDamage(); } }
         attack = false;
 
         /*
@@ -133,6 +122,5 @@ public class PlayerMovement : Unit {
             {colliders.f
                 var reponse = colliders.Equals(r => r.tag == "Enemy"); }
             animator.SetTrigger("Fight"); }*/
-
     }
 }

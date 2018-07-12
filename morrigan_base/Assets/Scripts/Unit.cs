@@ -6,17 +6,11 @@ public class Unit : MonoBehaviour
 {
 
     public virtual void ReceiveDamage()
-    {
+        { Die(); }
 
-        Die();
-    }
     public virtual void Die()
-    {
-        
-        Destroy(gameObject);
-    }
+        { Destroy(gameObject); }
+
     public virtual void ReceiveDamageBullet()
-    {
-        Die();
-    }
+        { Die(); }
 }
