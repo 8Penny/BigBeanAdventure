@@ -8,8 +8,8 @@ public class Attack : Unit {
 
     public bool attack;
 
-    public bool timerOn = false;
-    public float timeLeft = 0;
+    public bool timerOn = false; // таймер активен
+    public float timeLeft = 0; // счет секунд активности удара
 
     void Start () {
         playerCC = GetComponent<CapsuleCollider2D>();

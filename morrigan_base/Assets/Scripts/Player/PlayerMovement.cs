@@ -18,7 +18,10 @@ public class PlayerMovement : Unit {
     public float lowJumpMultiplier = 2f;
 
     public LayerMask groundLayer = 9;
-    
+
+    bool timerOn = false; // таймер активен
+    float timeLeft = 2f; // счет неуезвимости 
+
     void Start()
     {
         player = GetComponent<Rigidbody2D>();
@@ -29,11 +32,17 @@ public class PlayerMovement : Unit {
     void Update()
     {
         if (Input.GetButtonDown("Jump") && IsGrounded()) { JumpRequest = true; }
+        if (timerOn) { timeLeft -= Time.deltaTime; if (timeLeft < 0) { timerOn = false; } }
     }
 
     public override void ReceiveDamage() // Получение урона и уменьшение жизней
     {
-        lives--;
+        if (!timerOn)
+        {
+            lives--;
+            timeLeft = 2f;
+            timerOn = true;
+        }
         if (lives == 0) Die();
     }
 

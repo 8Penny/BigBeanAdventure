@@ -4,8 +4,10 @@ using System.Linq;
 public class MovebleMonster : Monster {
 
     [SerializeField]
+    public Unit player;
+    public Collider2D monster, player_c;
     private float speed = 2.0F;
-
+    
     public float lenPath = 2.0F;
     //private SpriteRenderer sprite;
     private Vector3 direction;
@@ -18,26 +20,30 @@ public class MovebleMonster : Monster {
     protected override void Start()
     {
         direction = transform.right;
+        monster = GetComponent<Collider2D>();
+        player = GameObject.FindWithTag("Player").GetComponent<Unit>();
+        player_c = player.GetComponent<Collider2D>();
     }
 
     protected override void Update()
     {
         Move();
+        if (Physics2D.IsTouching(monster, player_c)) { player.ReceiveDamage(); }
     }
 
-    protected override void OnTriggerEnter2D(Collider2D collider)
+
+    /*protected override void OnTriggerStay2D(Collider2D collider)
     {
         Unit unit = collider.GetComponent<Unit>();
         if (unit && unit.tag == "Player" )
         {
-            Debug.Log(collider.GetType());
-            //unit.ReceiveDamage();
-            Debug.Log(Mathf.Abs(unit.transform.position.x - transform.position.x));
-            Debug.Log(Mathf.Abs(unit.transform.position.y - transform.position.y));
-            if (Mathf.Abs(unit.transform.position.x - transform.position.x) < 1.6F ) unit.ReceiveDamage();
+
+            //Debug.Log(Mathf.Abs(unit.transform.position.x - transform.position.x));
+            //Debug.Log(Mathf.Abs(unit.transform.position.y - transform.position.y));
+            if (Mathf.Abs(unit.transform.position.x - transform.position.x) < 1.3F ) unit.ReceiveDamage();
             //else unit.ReceiveDamage();
         }
-    }
+    }*/
 
     private void Move()
     {        
