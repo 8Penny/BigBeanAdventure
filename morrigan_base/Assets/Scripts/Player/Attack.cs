@@ -9,7 +9,7 @@ public class Attack : Unit {
     public bool attack;
 
     public bool timerOn = false; // таймер активен
-    public float timeLeft = 0; // счет секунд активности удара
+    public float timeLeft = 0; // счёт секунд активности удара
 
     void Start () {
         playerCC = GetComponent<CapsuleCollider2D>();
@@ -38,7 +38,7 @@ public class Attack : Unit {
 
         timeLeft -= Time.deltaTime;
         if (!timerOn) { timerOn = true; timeLeft = .3f; animator.SetTrigger("Fight"); }
-        if (timerOn && timeLeft <= 0) { timerOn = false; Debug.Log("!!!"); }
+        if (timerOn && timeLeft <= 0) { timerOn = false; }
 
         if (colliders[0] != null) { if (colliders.Any(x => x.GetComponent<Monster>())) { Monster monster; monster = colliders[0].GetComponent<Monster>(); monster.ReceiveDamage(); } }
 

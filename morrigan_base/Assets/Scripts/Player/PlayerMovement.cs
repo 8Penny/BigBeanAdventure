@@ -20,7 +20,7 @@ public class PlayerMovement : Unit {
     public LayerMask groundLayer = 9;
 
     bool timerOn = false; // таймер активен
-    float timeLeft = 2f; // счет неуезвимости 
+    float timeLeft = 2f; // счёт неуязвимости 
 
     void Start()
     {
