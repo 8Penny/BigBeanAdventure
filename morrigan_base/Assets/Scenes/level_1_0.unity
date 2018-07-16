@@ -293,6 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 3
   horSpeed: 0.1
+  Vy: 0
   right_direction: 1
   verImp: 6.5
   fallMultiplier: 2.5
