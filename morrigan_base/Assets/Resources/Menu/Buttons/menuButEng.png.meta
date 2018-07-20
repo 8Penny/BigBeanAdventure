@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 07c56bfc1b4f6f64888fb9178e854dd9
-timeCreated: 1531581797
+guid: d8f20b21ae0c6b54da3194b73d971b31
+timeCreated: 1532084438
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: buttons_ng_pressed
-    21300002: buttons_continue_pressed
-    21300004: buttons_settings_pressed
+    21300000: NG_eng
+    21300002: Cont_eng
+    21300004: Sett_eng
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -103,35 +103,35 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buttons_ng_pressed
+      name: NG_eng
       rect:
         serializedVersion: 2
         x: 34
-        y: 378
-        width: 285
-        height: 90
+        y: 379
+        width: 286
+        height: 89
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: buttons_continue_pressed
+      name: Cont_eng
       rect:
         serializedVersion: 2
         x: 34
         y: 218
         width: 286
-        height: 88
+        height: 89
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: buttons_settings_pressed
+      name: Sett_eng
       rect:
         serializedVersion: 2
         x: 34
@@ -139,7 +139,7 @@ TextureImporter:
         width: 286
         height: 89
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
