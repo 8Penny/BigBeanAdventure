@@ -3,10 +3,11 @@
 --- !u!687078895 &4343727234628468602
 SpriteAtlas:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: AtlasFor
   m_EditorData:
+    serializedVersion: 2
     textureSettings:
       serializedVersion: 2
       anisoLevel: 1
@@ -18,10 +19,21 @@ SpriteAtlas:
       readable: 1
       crunchedCompression: 0
       sRGB: 1
-    platformSettings: []
-    packingParameters:
+    platformSettings:
+    - serializedVersion: 2
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+    packingSettings:
       serializedVersion: 2
-      padding: 2
+      padding: 4
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 1
@@ -39,6 +51,10 @@ SpriteAtlas:
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300006, guid: 8c61da317706cbf429ac86113d1800e1, type: 3}
+  - {fileID: 21300004, guid: 8c61da317706cbf429ac86113d1800e1, type: 3}
+  - {fileID: 21300000, guid: 27846ec1dc81aae4bbf4e0b3c3948bdb, type: 3}
+  - {fileID: 21300000, guid: 015189029578c0d43af593c9908e420c, type: 3}
   - {fileID: 21300004, guid: ed76bb92fac29ff499ae2c23c6bb1226, type: 3}
   - {fileID: 21300006, guid: ed76bb92fac29ff499ae2c23c6bb1226, type: 3}
   - {fileID: 21300000, guid: ed76bb92fac29ff499ae2c23c6bb1226, type: 3}
@@ -54,23 +70,23 @@ SpriteAtlas:
   - {fileID: 21300004, guid: 39c32a53ce7c2d44e9f26bc79c429c50, type: 3}
   - {fileID: 21300002, guid: 39c32a53ce7c2d44e9f26bc79c429c50, type: 3}
   - {fileID: 21300000, guid: 39c32a53ce7c2d44e9f26bc79c429c50, type: 3}
+  - {fileID: 21300008, guid: 983a58342dcee85488099bb47f290c16, type: 3}
+  - {fileID: 21300000, guid: 983a58342dcee85488099bb47f290c16, type: 3}
+  - {fileID: 21300002, guid: 983a58342dcee85488099bb47f290c16, type: 3}
+  - {fileID: 21300004, guid: 983a58342dcee85488099bb47f290c16, type: 3}
+  - {fileID: 21300006, guid: 983a58342dcee85488099bb47f290c16, type: 3}
   - {fileID: 21300006, guid: 0cf07f45f1c1ba4498adeb0d10bc9b71, type: 3}
   - {fileID: 21300004, guid: 0cf07f45f1c1ba4498adeb0d10bc9b71, type: 3}
   - {fileID: 21300002, guid: 0cf07f45f1c1ba4498adeb0d10bc9b71, type: 3}
   - {fileID: 21300000, guid: 0cf07f45f1c1ba4498adeb0d10bc9b71, type: 3}
   - {fileID: 21300010, guid: 0cf07f45f1c1ba4498adeb0d10bc9b71, type: 3}
   - {fileID: 21300008, guid: 0cf07f45f1c1ba4498adeb0d10bc9b71, type: 3}
-  - {fileID: 21300006, guid: 8c61da317706cbf429ac86113d1800e1, type: 3}
-  - {fileID: 21300004, guid: 8c61da317706cbf429ac86113d1800e1, type: 3}
-  - {fileID: 21300008, guid: 983a58342dcee85488099bb47f290c16, type: 3}
-  - {fileID: 21300000, guid: 983a58342dcee85488099bb47f290c16, type: 3}
-  - {fileID: 21300002, guid: 983a58342dcee85488099bb47f290c16, type: 3}
-  - {fileID: 21300004, guid: 983a58342dcee85488099bb47f290c16, type: 3}
-  - {fileID: 21300006, guid: 983a58342dcee85488099bb47f290c16, type: 3}
-  - {fileID: 21300000, guid: 27846ec1dc81aae4bbf4e0b3c3948bdb, type: 3}
   - {fileID: 21300000, guid: bfb0b9a7c6ea570499e3c4e67eb2e18b, type: 3}
-  - {fileID: 21300000, guid: 015189029578c0d43af593c9908e420c, type: 3}
   m_PackedSpriteNamesToIndex:
+  - Dirt_1
+  - Dirt_0
+  - cave_stone
+  - ground_up
   - fight_2
   - fight_3
   - fight_0
@@ -86,21 +102,17 @@ SpriteAtlas:
   - "\u0411\u0435\u0437 \u0438\u043C\u0435\u043D\u0438-1_2"
   - "\u0411\u0435\u0437 \u0438\u043C\u0435\u043D\u0438-1_1"
   - "\u0411\u0435\u0437 \u0438\u043C\u0435\u043D\u0438-1_0"
+  - golden_bean_4
+  - golden_bean_0
+  - golden_bean_1
+  - golden_bean_2
+  - golden_bean_3
   - idle1_3
   - idle1_2
   - idle1_1
   - idle1_0
   - idle1_5
   - idle1_4
-  - Dirt_1
-  - Dirt_0
-  - golden_bean_4
-  - golden_bean_0
-  - golden_bean_1
-  - golden_bean_2
-  - golden_bean_3
-  - cave_stone
   - ground
-  - ground_up
   m_Tag: AtlasFor
   m_IsVariant: 0
