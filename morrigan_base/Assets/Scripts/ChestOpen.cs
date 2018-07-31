@@ -27,7 +27,7 @@ public class ChestOpen : MonoBehaviour {
     {
         for (int i = 0; i < Random.Range(3, 7); i++)
         {
-            Vector3 pos = new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(0.5f, 1f), 0);
+            Vector3 pos = new Vector3(Random.Range(-1.2f, 1.2f), Random.Range(0.5f, 1f), 0);
             Instantiate(CoinPlant, gameObject.transform.position + pos, Quaternion.identity);
         }
     }
